@@ -1,5 +1,6 @@
 <template>
-<view :class="'am-popup ' + propClassname || '' + ' ' + ((propShow || false) ? 'am-popup-show' : '') + ' ' + ( (propAnimation || true) ? 'animation': '' )" :disable-scroll="propDisablescroll || true">
+<view class="am-popup" v-bind:class="{ 'am-popup-show': propShow, 'animation': propAnimation }"
+		:disable-scroll="propDisablescroll || true">
   <view class="am-popup-mask" v-if="propMask || true" @tap="onMaskTap"></view>
   <view :class="'am-popup-content am-popup-' + propPosition || 'bottom'">
     <slot></slot>
@@ -13,7 +14,14 @@ export default {
   data() {
     return {};
   },
-
+  watch: {
+	  propShow(val){
+		  console.log(val)
+	  }
+  },
+  mounted() {
+  	console.log(this.propShow)
+  },
   components: {},
   props: {
     propClassname: String,

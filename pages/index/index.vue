@@ -18,7 +18,7 @@
 <component-banner :prop-data="banner_list"></component-banner>
 
 <!-- 导航 -->
-<component-icon-nav :prop-data="navigation"></component-icon-nav>
+<!-- <component-icon-nav :prop-data="navigation"></component-icon-nav> -->
 
 <!-- 限时秒杀 -->
 <view v-if="common_app_is_limitedtimediscount == 1">
@@ -74,10 +74,10 @@
             </navigator>
           </block>
         </view>
-        <view v-if="floor.describe.length > 0" class="vice-name">{{floor.describe}}</view>
+<!--        <view v-if="floor.describe.length > 0" class="vice-name">{{floor.describe}}</view>
         <navigator :url="'/pages/goods-search/goods-search?category_id=' + floor.id" hover-class="none">
           <image v-if="floor.big_images.length > 0" :src="floor.big_images" mode="aspectFit" class="dis-block"></image>
-        </navigator>
+        </navigator> -->
       </view>
       <view class="goods-list" v-if="floor.goods.length > 0">
         <view v-for="(goods, index2) in floor.goods" :key="index2" class="goods bg-white">

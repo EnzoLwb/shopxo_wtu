@@ -67,7 +67,7 @@
     <view class="goods-price single-text">
       <view class="goods-share tc" @tap="popup_share_event">
         <image src="/static/images/goods-detail-share-icon.png" mode="scaleToFill" class="dis-block"></image>
-        <view class="cr-888">分享</view>        
+        <!-- <view class="cr-888">分享</view>        -->
       </view>
       <text v-if="(show_field_price_text || null) != null" class="price-icon">{{show_field_price_text}}</text>
       <text class="sales-price">￥{{goods.price}}</text>
