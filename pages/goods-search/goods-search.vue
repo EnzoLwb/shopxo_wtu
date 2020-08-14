@@ -6,7 +6,7 @@
     <block v-for="(item, index) in search_nav_sort_list" :key="index">
       <view class="item tc fl" :data-index="index" @tap="nav_sort_event">
         <text class="cr-666">{{item.name}}</text>
-        <image v-if="(item.icon || null) != null" class="icon" :src="'/images/search-' + item.icon + '-icon.png'" mode="aspectFill"></image>
+        <image v-if="(item.icon || null) != null" class="icon" :src="'/static/images/search-' + item.icon + '-icon.png'" mode="aspectFill"></image>
       </view>
     </block>
   </view>

@@ -463,7 +463,7 @@ export default {
                 goods_content_app: data.goods.content_app || [],
                 temp_buy_number: data.goods.buy_min_number || 1,
                 goods_favor_text: data.goods.is_favor == 1 ? '已收藏' : '收藏',
-                goods_favor_icon: '/images/goods-detail-favor-icon-' + data.goods.is_favor + '.png',
+                goods_favor_icon: '/static/images/goods-detail-favor-icon-' + data.goods.is_favor + '.png',
                 data_bottom_line_status: true,
                 data_list_loding_status: 3,
                 goods_spec_base_price: data.goods.price,
@@ -643,7 +643,7 @@ export default {
               this.setData({
                 'goods.is_favor': status,
                 goods_favor_text: status == 1 ? '已收藏' : '收藏',
-                goods_favor_icon: '/images/goods-detail-favor-icon-' + status + '.png'
+                goods_favor_icon: '/static/images/goods-detail-favor-icon-' + status + '.png'
               });
               app.globalData.showToast(res.data.msg, "success");
             } else {

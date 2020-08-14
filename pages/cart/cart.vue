@@ -4,7 +4,7 @@
   <view v-for="(item, index) in data_list" :key="index" :class="'goods-item oh bg-white ' + (common_is_exhibition_mode == 1 ? 'exhibition-mode-data' : '')">
     <!-- 选择 -->
     <view v-if="common_is_exhibition_mode != 1" @tap="selectedt_event" data-type="node" :data-index="index" class="fl selected">
-      <image class="icon" :src="'/images/default-select' + ((item.is_error || 0) == 1 ? '-disabled' : ((item.selected || false) ? '-active' : '')) + '-icon.png'" mode="widthFix"></image>
+      <image class="icon" :src="'/static/images/default-select' + ((item.is_error || 0) == 1 ? '-disabled' : ((item.selected || false) ? '-active' : '')) + '-icon.png'" mode="widthFix"></image>
     </view>
 
     <view class="bg-white items">
@@ -56,7 +56,7 @@
     <block v-else>
       <view class="nav-base bg-white fl single-text">
         <view @tap="selectedt_event" data-type="all" class="fl selected">
-          <image class="icon" :src="'/images/default-select' + (is_selected_all ? '-active' : '') + '-icon.png'" mode="widthFix"></image>
+          <image class="icon" :src="'/static/images/default-select' + (is_selected_all ? '-active' : '') + '-icon.png'" mode="widthFix"></image>
           <text>全选</text>
         </view>
         <view class="fr price">

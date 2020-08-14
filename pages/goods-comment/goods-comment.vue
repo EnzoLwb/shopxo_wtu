@@ -20,7 +20,7 @@
 <scroll-view scroll-y="true" class="scroll-box" @scrolltolower="scroll_lower" lower-threshold="30">
   <view v-for="(item, index) in data_list" :key="index" class="comment-item bg-white spacing-mt">
     <view class="oh nav">
-      <image class="avatar dis-block fl" :src="item.user.avatar || '/images/default-user.png'" mode="aspectFit"></image>
+      <image class="avatar dis-block fl" :src="item.user.avatar || '/static/images/default-user.png'" mode="aspectFit"></image>
       <view class="base-nav fr">
         <text>{{item.user.user_name_view}}</text>
         <text class="cr-ccc">评论于</text>

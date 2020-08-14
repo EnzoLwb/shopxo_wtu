@@ -49,7 +49,7 @@
             <view class="badge-icon">
               <component-badge :prop-number="items.count"></component-badge>
             </view>
-            <image :src="'/images/user-index-nav-order-icon-' + items.status + '.png'" class="items-icon" mode="aspectFill"></image>
+            <image :src="'/static/images/user-index-nav-order-icon-' + items.status + '.png'" class="items-icon" mode="aspectFill"></image>
             <view class="items-name">{{items.name}}</view>
           </view>
         </navigator>
