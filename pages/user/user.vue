@@ -93,7 +93,7 @@ import componentBadge from "../../components/badge/badge";
 export default {
   data() {
     return {
-      avatar: app.globalData.data.default_user_head_src,
+      avatar: app.globalData.default_user_head_src,
       nickname: "用户名",
       customer_service_tel: null,
       common_user_center_notice: null,
@@ -155,7 +155,7 @@ export default {
 
   onShow() {
     wx.setNavigationBarTitle({
-      title: app.globalData.data.common_pages_title.user
+      title: app.globalData.common_pages_title.user
     });
     this.init();
   },
@@ -188,7 +188,7 @@ export default {
             }
 
             self.setData({
-              avatar: user.avatar || app.globalData.data.default_user_head_src,
+              avatar: user.avatar || app.globalData.default_user_head_src,
               nickname: user.user_name_view || '用户名'
             });
           }
@@ -237,7 +237,7 @@ export default {
               user_order_status_list: temp_user_order_status_list,
               customer_service_tel: data.customer_service_tel || null,
               common_user_center_notice: data.common_user_center_notice || null,
-              avatar: data.avatar != null ? data.avatar : (this.avatar || null) == null ? app.globalData.data.default_user_head_src : this.avatar,
+              avatar: data.avatar != null ? data.avatar : (this.avatar || null) == null ? app.globalData.default_user_head_src : this.avatar,
               nickname: data.nickname != null ? data.nickname : this.nickname,
               message_total: (data.common_message_total || 0) == 0 ? 0 : data.common_message_total,
               head_nav_list: temp_head_nav_list,
@@ -273,7 +273,7 @@ export default {
 
     // 头像查看
     preview_event() {
-      if (app.globalData.data.default_user_head_src != this.avatar) {
+      if (app.globalData.default_user_head_src != this.avatar) {
         wx.previewImage({
           current: this.avatar,
           urls: [this.avatar]
@@ -284,7 +284,7 @@ export default {
     // 头像加载错误
     user_avatar_error(e) {
       this.setData({
-        avatar: app.globalData.data.default_user_head_src
+        avatar: app.globalData.default_user_head_src
       });
     },
 

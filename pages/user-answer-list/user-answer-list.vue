@@ -70,7 +70,7 @@ export default {
 
   onShow() {
     wx.setNavigationBarTitle({
-      title: app.globalData.data.common_pages_title.user_answer_list
+      title: app.globalData.common_pages_title.user_answer_list
     });
     this.init();
   },

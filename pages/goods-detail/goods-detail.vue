@@ -388,7 +388,7 @@ export default {
 
   onShow() {
     wx.setNavigationBarTitle({
-      title: this.goods == null ? app.globalData.data.common_pages_title.goods_detail : this.goods.title
+      title: this.goods == null ? app.globalData.common_pages_title.goods_detail : this.goods.title
     });
   },
 
@@ -408,8 +408,8 @@ export default {
     var user = app.globalData.get_user_cache_info(this, 'goods_favor_event') || null;
     var user_id = user != null && (user.id || null) != null ? user.id : 0;
     return {
-      title: app.globalData.data.application_title + '-' + this.goods.title,
-      desc: app.globalData.data.application_describe,
+      title: app.globalData.application_title + '-' + this.goods.title,
+      desc: app.globalData.application_describe,
       path: '/pages/goods-detail/goods-detail?goods_id=' + this.goods.id + '&referrer=' + user_id
     };
   },

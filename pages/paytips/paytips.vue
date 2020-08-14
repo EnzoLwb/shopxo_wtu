@@ -26,8 +26,8 @@ export default {
   data() {
     return {
       params: {},
-      default_round_success_icon: app.globalData.data.default_round_success_icon,
-      default_round_error_icon: app.globalData.data.default_round_error_icon
+      default_round_success_icon: app.globalData.default_round_success_icon,
+      default_round_error_icon: app.globalData.default_round_error_icon
     };
   },
 

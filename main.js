@@ -61,7 +61,7 @@ Vue.mixin({
 
 App.mpType = 'app';
 
-const app = new Vue({
+const shopxo = new Vue({
     ...App
 });
-app.$mount();
+shopxo.$mount();

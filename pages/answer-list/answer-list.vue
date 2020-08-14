@@ -72,7 +72,7 @@ export default {
 
   onShow() {
     wx.setNavigationBarTitle({
-      title: app.globalData.data.common_pages_title.answer_list
+      title: app.globalData.common_pages_title.answer_list
     });
   },
 
@@ -175,7 +175,7 @@ export default {
 
       for (var i in temp_data_list) {
         if (i == index) {
-          temp_data_list[i]['avatar'] = app.globalData.data.default_user_head_src;
+          temp_data_list[i]['avatar'] = app.globalData.default_user_head_src;
         }
       }
 

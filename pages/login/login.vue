@@ -191,7 +191,7 @@ export default {
      */
     formSubmit(e) {
       // 邀请人参数
-      var params = wx.getStorageSync(app.globalData.data.cache_launch_info_key) || null; // 数据验证
+      var params = wx.getStorageSync(app.globalData.cache_launch_info_key) || null; // 数据验证
 
       var validation = [{
         fields: 'mobile',
@@ -236,7 +236,7 @@ export default {
               clearInterval(this.temp_clear_time);
               app.globalData.showToast(res.data.msg, 'success');
               wx.setStorage({
-                key: app.globalData.data.cache_user_info_key,
+                key: app.globalData.cache_user_info_key,
                 data: res.data.data
               });
               var event_callback = this.params.event_callback || null;

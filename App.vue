@@ -52,8 +52,6 @@ export default {
     },
     // 请求地址
     request_url: "https://shopxo.bachashu.com/",
-    // request_url: 'http://tp5-dev.com/',
-    // request_url: 'https://test.shopxo.net/',
     // 基础信息
     application_title: "八叉树内容矩阵",
     application_describe: "商城~店铺街",

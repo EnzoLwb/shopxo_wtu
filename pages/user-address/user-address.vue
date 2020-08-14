@@ -90,7 +90,7 @@ export default {
 
   onShow() {
     wx.setNavigationBarTitle({
-      title: app.globalData.data.common_pages_title.user_address
+      title: app.globalData.common_pages_title.user_address
     });
     this.init();
   },
@@ -219,12 +219,12 @@ export default {
                   });
                   app.globalData.showToast(res.data.msg, "success"); // 当前删除是否存在缓存中，存在则删除
 
-                  var cache_address = wx.getStorageSync(app.globalData.data.cache_buy_user_address_select_key);
+                  var cache_address = wx.getStorageSync(app.globalData.cache_buy_user_address_select_key);
 
                   if ((cache_address.data || null) != null) {
                     if (cache_address.data.id == value) {
                       // 删除地址缓存
-                      wx.removeStorageSync(app.globalData.data.cache_buy_user_address_select_key);
+                      wx.removeStorageSync(app.globalData.cache_buy_user_address_select_key);
                     }
                   }
                 } else {
@@ -295,7 +295,7 @@ export default {
 
       if (is_back == 1) {
         wx.setStorage({
-          key: app.globalData.data.cache_buy_user_address_select_key,
+          key: app.globalData.cache_buy_user_address_select_key,
           data: this.data_list[index]
         });
         wx.navigateBack();

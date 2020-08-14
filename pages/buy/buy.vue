@@ -194,13 +194,13 @@ export default {
         params: JSON.parse(params.data)
       }); // 删除地址缓存
 
-      wx.removeStorageSync(app.globalData.data.cache_buy_user_address_select_key);
+      wx.removeStorageSync(app.globalData.cache_buy_user_address_select_key);
     }
   },
 
   onShow() {
     wx.setNavigationBarTitle({
-      title: app.globalData.data.common_pages_title.buy
+      title: app.globalData.common_pages_title.buy
     });
     this.init();
     this.setData({
@@ -218,7 +218,7 @@ export default {
     init() {
       // 本地缓存地址
       if (this.is_first == 0) {
-        var cache_address = wx.getStorageSync(app.globalData.data.cache_buy_user_address_select_key);
+        var cache_address = wx.getStorageSync(app.globalData.cache_buy_user_address_select_key);
 
         if ((cache_address || null) != null) {
           this.setData({
@@ -291,7 +291,7 @@ export default {
                     address_id: data.base.address.id
                   });
                   wx.setStorage({
-                    key: app.globalData.data.cache_buy_user_address_select_key,
+                    key: app.globalData.cache_buy_user_address_select_key,
                     data: data.base.address
                   });
                 }

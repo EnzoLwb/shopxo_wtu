@@ -72,9 +72,9 @@ export default {
 
   onShow() {
     if ((this.params.id || null) == null) {
-      var title = app.globalData.data.common_pages_title.user_address_save_add;
+      var title = app.globalData.common_pages_title.user_address_save_add;
     } else {
-      var title = app.globalData.data.common_pages_title.user_address_save_edit;
+      var title = app.globalData.common_pages_title.user_address_save_edit;
     }
 
     wx.setNavigationBarTitle({

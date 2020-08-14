@@ -85,7 +85,7 @@ export default {
 
   onShow() {
     wx.setNavigationBarTitle({
-      title: app.globalData.data.common_pages_title.message
+      title: app.globalData.common_pages_title.message
     });
     this.init();
   },

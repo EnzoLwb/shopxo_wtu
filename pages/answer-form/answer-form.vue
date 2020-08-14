@@ -35,7 +35,7 @@ export default {
 
   onShow() {
     wx.setNavigationBarTitle({
-      title: app.globalData.data.common_pages_title.answer_form
+      title: app.globalData.common_pages_title.answer_form
     });
     this.init();
   },

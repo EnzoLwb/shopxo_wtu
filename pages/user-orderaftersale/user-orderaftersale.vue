@@ -155,7 +155,7 @@ export default {
 
   onShow() {
     wx.setNavigationBarTitle({
-      title: app.globalData.data.common_pages_title.user_orderaftersale
+      title: app.globalData.common_pages_title.user_orderaftersale
     });
   },
 

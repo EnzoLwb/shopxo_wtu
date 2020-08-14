@@ -201,8 +201,8 @@ export default {
   // 自定义分享
   onShareAppMessage() {
     return {
-      title: app.globalData.data.application_title,
-      desc: app.globalData.data.application_describe,
+      title: app.globalData.application_title,
+      desc: app.globalData.application_describe,
       path: '/pages/index/index?share=index'
     };
   },

@@ -99,7 +99,7 @@ export default {
 
   onShow() {
     wx.setNavigationBarTitle({
-      title: app.globalData.data.common_pages_title.user_order_comments
+      title: app.globalData.common_pages_title.user_order_comments
     });
   },
 
