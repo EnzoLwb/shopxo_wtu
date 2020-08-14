@@ -1,0 +1,51 @@
+
+Warning： 找不到package.json文件(不影响转换，无视这条)
+
+miniprogram to uni-app 转换日志
+
+---基本信息---
+时间: 2020-08-14 13:24:57
+语言: Javascript
+转换模式: Hbuilder X
+是否转换wxs文件: false
+
+---小程序基本信息---
+name: xo_wx
+version: 
+description: 
+appid: wxe5cc0838da773384
+projectname: 
+compileType: miniprogram
+author: 
+
+---目录信息---
+sourceFolder: D:\uni-app\xo_wx
+targetFolder: D:\uni-app\xo_wx_uni
+outputFolder: D:\uni-app\xo_wx_uni
+miniprogramRoot: D:\uni-app\xo_wx
+
+---日志信息---
+[Warning] image漏网之鱼:    src--> "/images/user-index-nav-order-icon-{{items.status}}.png"     file--> pages\user\user.wxml
+[Warning] image漏网之鱼:    src--> "/images/default-select{{is_selected_all ? '-active' : ''}}-icon.png"     file--> pages\cart\cart.wxml
+[Warning] image漏网之鱼:    src--> "/images/default-xingxing-icon{{form_rating_list[index] != undefined && form_rating_list[index] >= item ? '-active' : ''}}.png"     file--> pages\user-order-comments\user-order-comments.wxml
+[Warning] image漏网之鱼:    src--> "/images/search-{{item.icon}}-icon.png"     file--> pages\goods-search\goods-search.wxml
+[Warning] image漏网之鱼:    src--> "/images/default-select{{(item.is_error || 0) == 1 ? '-disabled' : ((item.selected || false) ? '-active' : '')}}-icon.png"     file--> pages\cart\cart.wxml
+[命名替换]:  goods_score  -->  goods_scoreFun    file: pages\goods-comment\goods-comment.js
+[绑定值命名替换]:  status == 1;  -->  data_list_loding_status == 1;
+[绑定值命名替换]:  status == 2;  -->  data_list_loding_status == 2;
+[绑定值命名替换]:  status == 0;  -->  data_list_loding_status == 0;
+
+转换完成: 
+耗时：3092ms
+当前转换模式：【Hbuilder X】，生成HbuilderX项目。
+优点：上手快，项目结构较简单；
+缺点：资源路径会因为表达式而无法全部被修复(“可能”需手动修复)
+
+注意：
+1.当看到"image漏网之鱼"，意味着您"可能"需要手动调整对应代码(以实际编译运行为准)，当image标签的src属性是含变量或表达式，工具还无法做到100%转换，需要手动修改为相对/static目录的路径
+
+
+日志说明：
+1. image漏网之鱼 --> 为HbuilderX模式时，需要将资源移动到static，并且修复相应文件路径，有可能src为网络文件，有可能为变量或表达式，可能会导致转换后文件找不到，因此提示一下
+修复提示：编译时，如有报错就将对应位置修复即可(虽然目前uni-app有类似的支持，似乎并不完善)
+2. 命名替换 --> 小程序里对于属性名基本没什么限制，如id能做属性名，data下面的变量和函数名还能重名，但这些在uni-app里是不支持的，因此做了相关替换，并记录日志，也许组件在外部调用时，函数名被改而因此报错时，请查看此文档
