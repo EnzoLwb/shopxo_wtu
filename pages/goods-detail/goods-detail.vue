@@ -114,19 +114,20 @@
     </scroll-view>
   </view>
 
-  <!-- 属性导航 -->
-  <!-- <view wx:if="{{false}}" class="spacing">
-    <view class="goods-attr-show-title bg-white arrow-right cr-666" bindtap="good_attribute_nav_event">
-      属性
-    </view>
-  </view> -->
-
+	<view class="nav">
+	  <block v-for="(item, index) in nav_status_list" :key="index">
+	    <view  :class="nav_status_index == index ? 'main-cr spacing-nav-title' : 'spacing-nav-title' " class="item  fl tc " :data-index="index" @tap="nav_event">
+				<text class="line"></text>
+				<text class="text-wrapper">{{item.name}}</text>
+			</view>
+	  </block>
+	</view>
   <!-- 商品详情 -->
-  <view class="goods-detail spacing">
-    <view class="spacing-nav-title">
+  <view class="goods-detail spacing" v-if="nav_status_index==0">
+    <!-- <view class="spacing-nav-title">
       <text class="line"></text>
       <text class="text-wrapper">详情</text>
-    </view>
+    </view> -->
     <!-- web详情 -->
     <view v-if="common_app_is_use_mobile_detail == 0" class="bg-white">
       <rich-text :nodes="goods.content_web || ''"></rich-text>
@@ -141,7 +142,9 @@
       </view>
     </block>
   </view>
-
+	<view class="shop_detail" v-else>
+		 <rich-text :nodes="goods.shop_detail || ''"></rich-text>
+	</view>
   <!-- 底线 -->
   <!--<import src="/pages/common/bottom_line.wxml"></import>-->
   <block data-type="template" data-is="bottom_line" data-attr="status: data_bottom_line_status">
@@ -308,6 +311,14 @@ import componentBadge from "../../components/badge/badge";
 export default {
   data() {
     return {
+			nav_status_list: [{
+				name: "商品详情",
+				value: "0"
+			}, {
+				name: "商铺信息",
+				value: "1"
+			}],
+			nav_status_index: 0,
       indicator_dots: false,
       indicator_color: 'rgba(0, 0, 0, .3)',
       indicator_active_color: '#e31c55',
@@ -415,6 +426,14 @@ export default {
   },
 
   methods: {
+		//切换详情和商家
+		nav_event(e){
+			console.log(e.currentTarget.dataset.index)
+			this.setData({
+			  nav_status_index: e.currentTarget.dataset.index || 0,
+			});
+		},
+		
     // 获取数据列表
     init() {
       // 数据初始化
@@ -454,6 +473,7 @@ export default {
 
             if (res.data.code == 0) {
               var data = res.data.data;
+							data.goods.shop_detail = "<li>1233</li><li>456</li>"
               self.setData({
                 goods: data.goods,
                 indicator_dots: data.goods.photo.length > 1,

@@ -66,7 +66,7 @@
       <text class="text-wrapper">{{floor.name}}</text>
     </view>
     <view class="floor-list">
-      <view class="word" :style="'background-color:' + floor.bg_color || '#eaeaea'">
+      <view class="word" :style="'background-color:' + (floor.bg_color == '' ? '#23acff': floor.bg_color) ">
         <view v-if="floor.items.length > 0">
           <block v-for="(icv, icx) in floor.items" :key="icx">
             <navigator v-if="icx < 6 && icv.is_home_recommended == 1" class="word-icon" :url="'/pages/goods-search/goods-search?category_id=' + icv.id" hover-class="none">

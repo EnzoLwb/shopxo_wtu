@@ -1,8 +1,22 @@
+.nav {
+  background: #eee;
+  height: 80rpx;
+  line-height: 80rpx;
+	margin-top: 20rpx;
+}
+.nav .item {
+  width: 50%;
+}
+.shop_detail{
+	min-height: 200rpx;
+}
+.spacing-nav-title .text-wrapper{font-size: 30rpx;}
+.spacing-nav-title{color:grey}
+.main-cr{color: #d2364c;}
 .goods-photo .swiper-item, swiper {
     height: 65vh !important;
     display: block;
 }
-
 .goods-attr-show-title {
     height: 80rpx;
     line-height: 80rpx;
@@ -173,6 +187,7 @@
   line-height: 44rpx;
   font-weight: 500;
   padding: 15rpx 10rpx;
+  height:120rpx
 }
 .goods-base {
     padding: 15rpx 10rpx;
