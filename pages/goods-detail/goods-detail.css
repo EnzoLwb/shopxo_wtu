@@ -4,11 +4,35 @@
   line-height: 80rpx;
 	margin-top: 20rpx;
 }
+.all_goods {
+		background-color: #F37B1D !important;
+    border-radius: 50rpx;
+    font-size: 22rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    width: 160rpx;
+    display: inline-block;
+		float: right;
+}
+.margin-top {
+	margin-top: 40rpx;
+}
+.margin-bottom {
+	margin-bottom: 80rpx;
+}
 .nav .item {
   width: 50%;
 }
 .shop_detail{
+	padding: 10rpx 40rpx;
 	min-height: 200rpx;
+	background-color: white;
+}
+.shop_detail image{
+	width: 120rpx;
+	height: 120rpx;
+	vertical-align:text-bottom;
+	border-radius: 20rpx;
 }
 .spacing-nav-title .text-wrapper{font-size: 30rpx;}
 .spacing-nav-title{color:grey}

@@ -123,13 +123,13 @@
 	  </block>
 	</view>
   <!-- 商品详情 -->
-  <view class="goods-detail spacing" v-if="nav_status_index==0">
+  <view class="goods-detail spacing margin-bottom" v-if="nav_status_index==0" >
     <!-- <view class="spacing-nav-title">
       <text class="line"></text>
       <text class="text-wrapper">详情</text>
     </view> -->
     <!-- web详情 -->
-    <view v-if="common_app_is_use_mobile_detail == 0" class="bg-white">
+    <view v-if="common_app_is_use_mobile_detail == 0" class="bg-white margin-bottom">
       <rich-text :nodes="goods.content_web || ''"></rich-text>
     </view>
     <!-- 手机独立详情 -->
@@ -142,8 +142,20 @@
       </view>
     </block>
   </view>
+	<!-- 商铺信息 -->
 	<view class="shop_detail" v-else>
-		 <rich-text :nodes="goods.shop_detail || ''"></rich-text>
+		<image :src="seller.shop_avatar" class="shop_avatar" v-show="seller.shop_avatar" mode="scaleToFill"></image>
+		 <view style="display: inline-block;margin: 0px 40rpx;">
+		 	<view class="margin-top" style="width: 460rpx;">
+		 						 商铺名称: {{seller.shop_name}}
+								 <button class="all_goods" @tap="sellerGoods(seller.admin_id)">全部商品</button>
+		 	</view>
+		 	<view class="margin-top margin-bottom">
+		 				 所在地: {{seller.location_site}}
+		 	</view>
+		 </view>
+
+		 
 	</view>
   <!-- 底线 -->
   <!--<import src="/pages/common/bottom_line.wxml"></import>-->
@@ -210,7 +222,8 @@
             <view class="title">{{item.name}}</view>
             <view v-if="item.value.length > 0" class="spec">
               <block v-for="(items, keys) in item.value" :key="keys">
-                <button @tap.stop="goods_specifications_event" :data-key="key" :data-keys="keys" type="default" size="mini" hover-class="none" :class="items.is_active + ' ' + items.is_dont + ' ' + items.is_disabled">
+                <button @tap.stop="goods_specifications_event" :data-key="key" :data-keys="keys" type="default" size="mini" hover-class="none"
+								 :class="[items.is_active,items.is_disabled,items.is_dont]">
                   <image v-if="(items.images || null) != null" :src="items.images" mode="scaleToFill"></image>
                   {{items.name}}
                 </button>
@@ -366,7 +379,12 @@ export default {
         "src_mini_program_path": "",
         "brand_info": {}
       },
-      "brand_info": {},
+      brand_info: {},
+			seller:{
+				"shop_avatar" : "http://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/img/b5d11fd6f7627b04f9713c995b75af78.png",
+				"shop_name" : "精品自营",
+				"location_site" : "苏州,天津",
+			},
       // 海报分享
       common_app_is_poster_share: 0,
       // 优惠劵
@@ -428,10 +446,17 @@ export default {
   methods: {
 		//切换详情和商家
 		nav_event(e){
-			console.log(e.currentTarget.dataset.index)
 			this.setData({
 			  nav_status_index: e.currentTarget.dataset.index || 0,
 			});
+		},
+		
+		//跳转到商家页面
+		sellerGoods(admin_id){
+			wx.navigateTo({
+				url: '/pages/goods-search/goods-search?admin_id=' + admin_id
+			});
+			
 		},
 		
     // 获取数据列表
@@ -473,7 +498,7 @@ export default {
 
             if (res.data.code == 0) {
               var data = res.data.data;
-							data.goods.shop_detail = "<li>1233</li><li>456</li>"
+							if(data.seller) this.seller = data.seller //商铺信息
               self.setData({
                 goods: data.goods,
                 indicator_dots: data.goods.photo.length > 1,
@@ -577,12 +602,18 @@ export default {
       if (temp_data.length <= 0) {
         return false;
       } // 是否不能选择
-
+/* 			Vue.set(this.goods_specifications_choose,'is_dont',"")
+			Vue.set(this.goods_specifications_choose,'is_disabled',"")
+			Vue.set(this.goods_specifications_choose,'is_active',"") */
 
       for (var i in temp_data) {
         for (var k in temp_data[i]['value']) {
+					if(!temp_data[i]['value'][k]['is_dont']) this.$set(this.goods_specifications_choose[i]['value'][k],'is_dont',"")
+					if(!temp_data[i]['value'][k]['is_disabled']) this.$set(this.goods_specifications_choose[i]['value'][k],'is_disabled',"")
+					if(!temp_data[i]['value'][k]['is_active']) this.$set(this.goods_specifications_choose[i]['value'][k],'is_active',"")
           if (i > key) {
-            temp_data[i]['value'][k]['is_dont'] = 'spec-dont-choose', temp_data[i]['value'][k]['is_disabled'] = '';
+            temp_data[i]['value'][k]['is_dont'] = 'spec-dont-choose';
+						temp_data[i]['value'][k]['is_disabled'] = '';
             temp_data[i]['value'][k]['is_active'] = '';
           } // 当只有一个规格的时候
 
@@ -727,7 +758,6 @@ export default {
       var keys = e.currentTarget.dataset.keys || 0;
       var temp_data = this.goods_specifications_choose;
       var temp_images = this.goods_spec_base_images; // 不能选择和禁止选择跳过
-
       if ((temp_data[key]['value'][keys]['is_dont'] || null) == null && (temp_data[key]['value'][keys]['is_disabled'] || null) == null) {
         // 规格选择
         for (var i in temp_data) {
@@ -747,7 +777,6 @@ export default {
             }
           }
         }
-
         this.setData({
           goods_specifications_choose: temp_data,
           goods_spec_base_images: temp_images,
