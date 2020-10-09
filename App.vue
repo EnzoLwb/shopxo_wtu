@@ -48,10 +48,12 @@ export default {
       "user_orderaftersale_detail": "订单售后",
       "user_order_comments": "订单评论",
       "coupon": "领劵中心",
-      "user_coupon": "优惠劵"
+      "user_coupon": "优惠劵",
+      "weitao_index": "微淘",
     },
     // 请求地址
     request_url: "https://shopxo.bachashu.com/",
+    login_url: "https://shopxo.bachashu.com/",
     // 基础信息
     application_title: "八叉树内容矩阵",
     application_describe: "商城~店铺街",
@@ -110,7 +112,14 @@ export default {
       if (params != "" && params.substr(0, 1) != "&") {
         params = "&" + params;
       }
-
+			
+/* 			var url;
+			if(a=="wechatuserauth" || a=="wechatuserinfo"){
+				//登陆接口必须使用正常的
+				url = this.login_url
+			}else{
+				url = this.request_url
+			} */
       var user = this.get_user_cache_info();
       var token = user == false ? '' : user.token || '';
       return this.request_url + "index.php?s=/" + m + "/" + c + "/" + a + "&application=app&application_client_type=weixin" + "&token=" + token + "&ajax=ajax" + params;
@@ -528,9 +537,8 @@ export default {
     options = this.globalData.launch_params_handle(options); // 设置设备信息
 
     this.globalData.set_system_info(); // 缓存启动参数
-
     wx.setStorage({
-      key: this.cache_launch_info_key,
+      key: this.globalData.cache_launch_info_key,
       data: options
     });
   },

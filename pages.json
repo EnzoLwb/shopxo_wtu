@@ -1,6 +1,12 @@
 {
 	"pages": [
 		{
+			"path": "pages/weitao/index",
+			"style": {
+				"enablePullDownRefresh": true
+			}
+		},
+		{
 			"path": "pages/index/index",
 			"style": {
 				"enablePullDownRefresh": true
@@ -174,7 +180,7 @@
 		"backgroundColor": "#fff",
 		"list": [
 			{
-				"pagePath": "pages/index/index",
+				"pagePath": "pages/weitao/index",
 				"iconPath": "/static/images/nav-icon-home.png",
 				"selectedIconPath": "/static/images/nav-icon-home-active.png",
 				"text": "首页"

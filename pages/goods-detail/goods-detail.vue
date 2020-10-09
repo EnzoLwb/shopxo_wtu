@@ -384,6 +384,7 @@ export default {
 				"shop_avatar" : "http://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/img/b5d11fd6f7627b04f9713c995b75af78.png",
 				"shop_name" : "精品自营",
 				"location_site" : "苏州,天津",
+				"admin_id":1,
 			},
       // 海报分享
       common_app_is_poster_share: 0,
