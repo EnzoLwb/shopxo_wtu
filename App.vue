@@ -22,6 +22,12 @@ export default {
     default_round_error_icon: "/static/images/default-round-error-icon.png",
     // tabbar页面
     tabbar_pages: ["index", "goods-category", "cart", "user"],
+		common_seller :{
+			"shop_avatar" : "http://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/img/b5d11fd6f7627b04f9713c995b75af78.png",
+			"shop_name" : "精品自营",
+			"location_site" : "苏州,天津",
+			"admin_id":1,
+		},
     // 页面标题
     common_pages_title: {
       "goods_search": "商品搜索",
@@ -49,10 +55,10 @@ export default {
       "user_order_comments": "订单评论",
       "coupon": "领劵中心",
       "user_coupon": "优惠劵",
-      "weitao_index": "微淘",
+      "weitao_index": "店铺动态",
     },
     // 请求地址
-    request_url: "https://shopxo.bachashu.com/",
+    request_url: "https://shopxo.bachashu.com/",//http://192.168.1.106:1251/   http://edi.test/
     login_url: "https://shopxo.bachashu.com/",
     // 基础信息
     application_title: "八叉树内容矩阵",

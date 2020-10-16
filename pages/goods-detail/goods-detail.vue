@@ -148,7 +148,7 @@
 		 <view style="display: inline-block;margin: 0px 40rpx;">
 		 	<view class="margin-top" style="width: 460rpx;">
 		 						 商铺名称: {{seller.shop_name}}
-								 <button class="all_goods" @tap="sellerGoods(seller.admin_id)">全部商品</button>
+								 <button class="all_goods" @tap="sellerGoods(seller.shop_name,seller.admin_id)">全部商品</button>
 		 	</view>
 		 	<view class="margin-top margin-bottom">
 		 				 所在地: {{seller.location_site}}
@@ -380,12 +380,7 @@ export default {
         "brand_info": {}
       },
       brand_info: {},
-			seller:{
-				"shop_avatar" : "http://misc.360buyimg.com/mtd/pc/index_2019/1.0.0/assets/img/b5d11fd6f7627b04f9713c995b75af78.png",
-				"shop_name" : "精品自营",
-				"location_site" : "苏州,天津",
-				"admin_id":1,
-			},
+			seller:app.globalData.common_seller,
       // 海报分享
       common_app_is_poster_share: 0,
       // 优惠劵
@@ -453,9 +448,9 @@ export default {
 		},
 		
 		//跳转到商家页面
-		sellerGoods(admin_id){
+		sellerGoods(shop_name,admin_id){
 			wx.navigateTo({
-				url: '/pages/goods-search/goods-search?admin_id=' + admin_id
+				url: '/pages/goods-search/goods-search?shop_name='+shop_name+'&admin_id=' + admin_id
 			});
 			
 		},

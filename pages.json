@@ -1,13 +1,13 @@
 {
 	"pages": [
 		{
-			"path": "pages/weitao/index",
+			"path": "pages/index/index",
 			"style": {
 				"enablePullDownRefresh": true
 			}
 		},
 		{
-			"path": "pages/index/index",
+			"path": "pages/weitao/index",
 			"style": {
 				"enablePullDownRefresh": true
 			}
@@ -180,10 +180,16 @@
 		"backgroundColor": "#fff",
 		"list": [
 			{
-				"pagePath": "pages/weitao/index",
+				"pagePath": "pages/index/index",
 				"iconPath": "/static/images/nav-icon-home.png",
 				"selectedIconPath": "/static/images/nav-icon-home-active.png",
 				"text": "首页"
+			},
+			{
+				"pagePath": "pages/weitao/index",
+				"iconPath": "/static/images/nav-weitao-unselected.png",
+				"selectedIconPath": "/static/images/nav-weitao-selected.png",
+				"text": "动态"
 			},
 			{
 				"pagePath": "pages/goods-category/goods-category",
@@ -214,7 +220,8 @@
 	"sitemapLocation": "sitemap.json",
 	"globalStyle": {
 		"navigationBarTitleText": "八叉树内容矩阵",
-		"navigationBarBackgroundColor": "#d2364c"
+		"navigationBarBackgroundColor": "#d2364c",
+		"onReachBottomDistance": 200
 	},
 	"subPackages": []
 }

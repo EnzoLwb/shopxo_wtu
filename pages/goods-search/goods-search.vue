@@ -132,9 +132,16 @@ export default {
   },
 
   onShow() {
-    wx.setNavigationBarTitle({
-      title: app.globalData.common_pages_title.goods_search
-    });
+		if (this.post_data['shop_name']){
+			//设置title
+			wx.setNavigationBarTitle({
+				title: this.post_data['shop_name']
+			});
+		}else{
+			wx.setNavigationBarTitle({
+				title: app.globalData.common_pages_title.goods_search
+			});
+		}
   },
 
   // 下拉刷新
@@ -170,7 +177,6 @@ export default {
         }
       } // 加载loding
 
-
       wx.showLoading({
         title: "加载中..."
       });
@@ -199,6 +205,7 @@ export default {
             if (res.data.data.data.length > 0) {
               if (this.data_page <= 1) {
                 var temp_data_list = res.data.data.data;
+							
               } else {
                 var temp_data_list = this.data_list;
                 var temp_data = res.data.data.data;
